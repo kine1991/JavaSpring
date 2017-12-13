@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:security="http://www.springframework.org/schema/security"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/security
+       		 http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<import resource="appconfig-mvc.xml"/>
+
+	<import resource="appconfig-data.xml"/>
+
+	<import resource="appconfig-security.xml"/>
+
+	<context:component-scan base-package="ru.nikolay" />
+
+	<!--<context:component-scan base-package="net.proselyte.springsecurityapp.*"/>-->
+
+	<!--<context:property-placeholder location="classpath:database.properties"/>-->
+
+
+	<!--&lt;!&ndash;Spring security enabled annotations&ndash;&gt;-->
+	<!--<security:global-method-security pre-post-annotations= "enabled" secured-annotations= "enabled" jsr250-annotations= "enabled"/>-->
+
+
+	<!-- Включает поддержку аннотаций по безопасности-->
+	<security:global-method-security secured-annotations="enabled"
+									 jsr250-annotations="enabled"
+									 pre-post-annotations="enabled"/>
+
+</beans>

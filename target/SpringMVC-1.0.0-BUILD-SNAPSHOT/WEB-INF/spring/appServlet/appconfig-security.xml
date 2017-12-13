@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://www.springframework.org/schema/security"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+
+
+
+
+    <http use-expressions="true">
+        <access-denied-handler error-page="/accessDenied1"/>
+
+        <!--<intercept-url pattern="/jdbcQueryAllUsers" access="hasAnyRole('ROLE_USER')"/>-->
+
+        <!--<intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>-->
+        <!--<intercept-url pattern="/user" access="isAuthenticated()" />-->
+        <!--<intercept-url pattern="/admin" access="isAuthenticated()" />-->
+
+        <form-login login-page='/login'
+                    default-target-url="/check-user2"
+                    authentication-failure-url="/login?error=true"
+                    username-parameter="username"
+                    password-parameter="password" />
+
+        <logout logout-success-url="/login" />
+        <!--<logout logout-url="/logout" logout-success-url="/"/>-->
+
+        <csrf/>
+
+
+        <remember-me remember-me-parameter="remember-me"/>
+    </http>
+
+
+
+    <authentication-manager>
+        <authentication-provider>
+            <jdbc-user-service data-source-ref="dataSource"/>
+            <!--<user-service>-->
+                <!--<user name="user" password="user" authorities="ROLE_USER" />-->
+                <!--<user name="admin" password="admin" authorities="ROLE_ADMIN" />-->
+
+            <!--</user-service>-->
+        </authentication-provider>
+    </authentication-manager>
+
+
+
+</beans:beans>
+
+        <!--<http use-expressions="false">-->
+
+        <!--<intercept-url pattern="/user" access="isAuthenticated()" />-->
+        <!--<intercept-url pattern="/admin" access="isAuthenticated()" />-->
+        <!--&lt;!&ndash;<intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>&ndash;&gt;-->
+
+        <!--<intercept-url pattern="/login.jsp*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>-->
+        <!--<intercept-url pattern="/**" access="ROLE_USER" />-->
+        <!--<form-login login-page='/login'/>-->
+    <!--</http>-->
+
+
+
+    <!--<http  auto-config="false"   >-->
+
+
+        <!--<intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>-->
+
+
+        <!--<form-login login-page="/WEB-INF/views/login.jsp"-->
+                    <!--default-target-url="/check-user2"-->
+                    <!--username-parameter="username"-->
+                    <!--password-parameter="password"/>-->
+
+        <!--<csrf/>-->
+
+    <!--</http>-->

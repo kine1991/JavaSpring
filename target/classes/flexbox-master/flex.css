@@ -1,0 +1,74 @@
+.flex-container {
+/*    height: 200px;*/
+    
+/*    display: inline-flex;*/
+    display: flex;
+
+    
+    flex-direction: row;
+/*    flex-direction: row-reverse*/
+/*        flex-direction: column;*/
+
+        
+/*    flex-wrap: wrap;*/  /*ограничение по ширине*/
+        
+    
+/*    justify-content: flex-end;*/
+/*    justify-content: space-between;*/
+    
+}
+
+
+/*
+.flex-element:first-child{
+    margin-right:auto;
+}
+
+.flex-element:last-child{
+    margin-left:auto;
+}
+
+.flex-element:nth-child(4){
+    margin:auto;
+}
+*/
+
+
+
+
+/*
+.element-1{
+    order: 1;
+}
+.element-8{
+    order: -1;
+}
+.element-2{
+    order: 2;
+}
+*/
+
+
+
+.flex-element{
+    order: 0;
+    
+    flex-grow: 1;
+}
+
+.element-4{
+    flex-grow: 5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
